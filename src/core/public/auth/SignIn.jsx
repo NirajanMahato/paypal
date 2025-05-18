@@ -17,10 +17,10 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="bg-white p-6 rounded-xl shadow-md w-full max-w-sm">
+    <div className="min-h-screen flex items-center justify-center bg-white p-4">
+      <div className="bg-white py-6 px-12 rounded-xl border border-gray-300 w-full max-w-md">
         <div className="flex justify-center mb-6">
-          <img src="/Logo/logo.png" alt="PayPal" className="w-16" />
+          <img src="/Logo/paypal-logo.png" alt="PayPal" className="w-10" />
         </div>
 
         {loggedIn ? (
@@ -40,7 +40,7 @@ const SignIn = () => {
 
             <input
               type="password"
-              placeholder="Enter your password"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full p-3 border border-gray-300 rounded mb-4"
@@ -49,13 +49,13 @@ const SignIn = () => {
 
             {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 
-            <div className="text-left text-blue-600 text-md mb-4 cursor-pointer font-bold">
+            <div className="text-left text-[#0070E0] text-md mb-4 cursor-pointer font-bold">
               Forgot password?
             </div>
 
             <button
               type="submit"
-              className="w-full bg-[#0070E0] hover:bg-[#005bb5] cursor-pointer text-white p-3 rounded-full font-semibold"
+              className="w-full bg-[#0544b5] hover:bg-[#0070E0] cursor-pointer text-white p-3 rounded-full font-semibold"
             >
               Log In
             </button>
