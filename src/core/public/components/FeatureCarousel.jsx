@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function FeatureCarousel() {
   const [slide, setSlide] = useState(0);
@@ -24,9 +25,11 @@ export default function FeatureCarousel() {
               <p className="text-lg font-medium -mt-1">
                 Pay for things that you bought or a service you received.
               </p>
-              <button className="bg-white w-full mt-6 px-4 py-2 rounded-full font-bold text-lg text-blue-900 border-2 border-blue-900 hover:cursor-pointer">
-                Send Money
-              </button>
+              <Link to={'/send'}>
+                <button className="bg-white w-full mt-6 px-4 py-2 rounded-full font-bold text-lg text-blue-900 border-2 border-blue-900 hover:cursor-pointer">
+                  Send Money
+                </button>
+              </Link>
             </div>
 
             {/* Get Paid */}

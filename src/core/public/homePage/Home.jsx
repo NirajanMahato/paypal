@@ -1,8 +1,8 @@
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { IoCard } from "react-icons/io5";
+import FeatureCarousel from "../components/FeatureCarousel";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import FeatureCarousel from "../components/FeatureCarousel";
+import visaCard from "/Logo/visa-card.png";
 
 const HomePage = () => {
   return (
@@ -12,7 +12,7 @@ const HomePage = () => {
       <div className="max-w-7xl mx-auto px-4 lg:flex gap-6  min-h-screen">
         {/* Left Section */}
         <div className="flex-1 space-y-6 mt-6">
-          <FeatureCarousel/>
+          <FeatureCarousel />
 
           {/* Setup & Activity */}
           <div className="space-y-4 pl-20">
@@ -54,24 +54,34 @@ const HomePage = () => {
 
         {/* Right Section */}
         <div className="w-full lg:w-[42%] bg-white space-y-4 pr-20 pt-6 pl-2">
-          <div className="bg-white rounded-xl p-4">
-            <div className="flex justify-between">
-              <h4 className="font-bold text-xl mb-2">Cards</h4>
-              <div className="text-xl text-gray-600">
-                <BsThreeDotsVertical />
+          <div className="bg-white rounded-xl p-4 w-full space-y-4">
+            {/* Header Row */}
+            <div className="flex justify-between items-center">
+              <h4 className="font-bold text-xl text-[#001435]">Cards</h4>
+              <BsThreeDotsVertical className="text-[#5c5f62] text-xl" />
+            </div>
+
+            {/* Card Item */}
+            <div className="hover:bg-[#f4f2ef] rounded-sm flex items-center p-3 space-x-4 hover:cursor-pointer">
+              <img
+                src={visaCard}
+                alt="Visa"
+                className="w-12 h-8 object-cover"
+              />
+              <div>
+                <p className="text-[#001435] text-lg font-semibold leading-tight">
+                  Visa
+                </p>
+                <p className="text-[#001435] text-sm font-medium">
+                  Debit ••••23
+                </p>
               </div>
             </div>
-            <div className="flex items-start mt-2">
-              <div className="text-[#4e5255] text-3xl mr-3 mt-5">
-                <IoCard />
-              </div>
-              <p className="text-lg font-medium mb-2">
-                Shop and send payments more securely. Link your credit card now.
-              </p>
-            </div>
+
+            {/* Link Card */}
             <a
               href="#"
-              className="text-xl text-[#0070E0] font-bold  hover:underline"
+              className="text-[#0070E0] font-bold text-lg hover:underline"
             >
               Link a card
             </a>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { dummyUser } from "../../../dummydata/user";
+import { dummyUsers } from "../../../dummydata/user";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -9,7 +9,7 @@ const SignIn = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (email === dummyUser.email && password === dummyUser.password) {
+    if (email === dummyUsers.email && password === dummyUsers.password) {
       setLoggedIn(true);
     } else {
       setError("Invalid credentials");
