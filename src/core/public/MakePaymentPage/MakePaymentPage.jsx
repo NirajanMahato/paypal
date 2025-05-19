@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaSpinner, FaUser } from "react-icons/fa";
+import { FaSpinner, FaStore } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { dummyUsers } from "../../../dummydata/user";
 import Footer from "../components/Footer";
@@ -22,6 +22,19 @@ export default function MakePaymentPage() {
   const [note, setNote] = useState("");
 
   const currencies = ["EUR", "USD", "INR", "JPY", "GBP"];
+  const exchangeRates = {
+    USD: 1,
+    EUR: 0.92,
+    INR: 83.5,
+    JPY: 156.4,
+    GBP: 0.79,
+  };
+  const getConvertedAmount = () => {
+    const base = parseFloat(amount);
+    if (!base || isNaN(base)) return "0.00";
+    const rate = exchangeRates[currency] || 1;
+    return (base * rate).toFixed(2);
+  };
 
   const handleNext = () => {
     if (amount && parseFloat(amount) > 0) {
@@ -43,7 +56,7 @@ export default function MakePaymentPage() {
       <Navbar />
       <div>
         <div className="min-h-screen bg-white flex justify-center items-center flex-col px-4">
-          <div className="w-full max-w-xl border mt-10 border-gray-300 rounded-xl px-12 py-8 mb-3">
+          <div className="w-full max-w-xl border lg:mt-10 border-gray-300 rounded-xl lg:px-12 px-7 lg:py-8 py-6 mb-3">
             {/* User Info */}
             <div className="flex items-center justify-center space-x-4 mb-6">
               {user.avatar ? (
@@ -54,7 +67,7 @@ export default function MakePaymentPage() {
                 />
               ) : (
                 <div className="w-16 h-16 rounded-full bg-[#2663e6] flex items-center justify-center text-white">
-                  <FaUser className="text-sm" />
+                  <FaStore className="text-xl" />
                 </div>
               )}
               <div>
@@ -68,21 +81,23 @@ export default function MakePaymentPage() {
               <div>
                 <p className="text-sm text-gray-500 mb-1">You send</p>
 
-                {/* Amount Display (click to edit) */}
-                <span className="text-4xl">$</span>
-                <input
-                  type="text"
-                  inputMode="decimal"
-                  value={amount}
-                  onChange={(e) => {
-                    // Remove any characters except numbers and dot
-                    const value = e.target.value.replace(/[^0-9.]/g, "");
-                    setAmount(value);
-                  }}
-                  placeholder="0.00"
-                  className="text-4xl font-semibold text-gray-900 w-full max-w-xs bg-transparent outline-none border-none focus:ring-0 focus:outline-none placeholder-black"
-                  style={{ appearance: "none" }}
-                />
+                <div className="flex">
+                  {/* Amount Display (click to edit) */}
+                  <span className="text-4xl">$</span>
+                  <input
+                    type="text"
+                    inputMode="decimal"
+                    value={amount}
+                    onChange={(e) => {
+                      // Remove any characters except numbers and dot
+                      const value = e.target.value.replace(/[^0-9.]/g, "");
+                      setAmount(value);
+                    }}
+                    placeholder="0.00"
+                    className="text-4xl font-semibold text-gray-900 w-full max-w-xs bg-transparent outline-none border-none focus:ring-0 focus:outline-none placeholder-black"
+                    style={{ appearance: "none" }}
+                  />
+                </div>
               </div>
 
               <span className="text-gray-500 font-medium">USD</span>
@@ -104,7 +119,7 @@ export default function MakePaymentPage() {
                     : currency === "GBP"
                     ? "£"
                     : "$"}
-                  {amount || "0.00"}
+                  {getConvertedAmount()}
                 </p>
                 <p className="text-xs text-gray-400 mt-2">
                   Please enter amount to see exchange rate

@@ -21,7 +21,7 @@ export default function SuccessPage() {
             {parseFloat(amount).toLocaleString(undefined, {
               minimumFractionDigits: 2,
             })}{" "}
-            {currency}
+            USD
           </span>{" "}
           to <span className="">@{username}</span>
         </p>

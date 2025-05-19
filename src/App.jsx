@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SignIn from "./core/public/auth/SignIn";
+import LoadingScreen from "./core/public/components/LoadingScreen";
 import HomePage from "./core/public/homePage/Home";
 import MakePaymentPage from "./core/public/MakePaymentPage/MakePaymentPage";
 import SendPage from "./core/public/sendPage/SendPage";
@@ -19,6 +20,9 @@ function App() {
             { path: "/send", element: <SendPage /> },
             { path: "/make-payment", element: <MakePaymentPage /> },
             { path: "/success", element: <SuccessPage /> },
+            { path: "/wallet", element: <LoadingScreen /> },
+            { path: "/activity", element: <LoadingScreen /> },
+            { path: "/help", element: <LoadingScreen /> },
           ])}
         />
       </QueryClientProvider>

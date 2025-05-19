@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaSearch, FaUser } from "react-icons/fa";
+import { FaSearch, FaStore, FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { dummyUsers } from "../../../dummydata/user";
 import Navbar from "../components/Navbar";
@@ -34,7 +34,7 @@ export default function SendPage() {
       <Navbar />
       <div className="min-h-screen bg-white flex flex-col items-start">
         <div className="w-full shadow-md mb-14 mt-5">
-          <div className="pb-6 px-28">
+          <div className="pb-6 lg:px-28 px-7">
             <div className="w-24 font-bold text-md">
               <h1 className="px-4 py-3 flex justify-center border-b-2 border-black">
                 Send
@@ -43,7 +43,7 @@ export default function SendPage() {
           </div>
         </div>
 
-        <div className="lg:px-36 w-full relative">
+        <div className="lg:px-36 px-8 w-full relative">
           <h1 className="text-2xl sm:text-2xl font-bold mb-8">
             Send payment to
           </h1>
@@ -92,7 +92,7 @@ export default function SendPage() {
                     />
                   ) : (
                     <div className="w-11 h-11 rounded-full bg-[#2663e6] flex items-center justify-center text-white">
-                      <FaUser className="text-sm" />
+                      <FaStore className="text-md" />
                     </div>
                   )}
                   <div>
