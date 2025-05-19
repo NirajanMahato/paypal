@@ -6,6 +6,7 @@ import HomePage from "./core/public/homePage/Home";
 import MakePaymentPage from "./core/public/MakePaymentPage/MakePaymentPage";
 import SendPage from "./core/public/sendPage/SendPage";
 import SuccessPage from "./core/public/successPage/SuccessPage";
+import LoadingPage from "./core/public/loadingPage/LoadingPage";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ function App() {
             { path: "/wallet", element: <LoadingScreen /> },
             { path: "/activity", element: <LoadingScreen /> },
             { path: "/help", element: <LoadingScreen /> },
+            { path: "/loading", element: <LoadingPage /> },
           ])}
         />
       </QueryClientProvider>

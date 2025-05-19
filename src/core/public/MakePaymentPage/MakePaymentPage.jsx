@@ -38,16 +38,13 @@ export default function MakePaymentPage() {
 
   const handleNext = () => {
     if (amount && parseFloat(amount) > 0) {
-      setLoading(true);
-      setTimeout(() => {
-        navigate("/success", {
-          state: {
-            username,
-            amount,
-            currency,
-          },
-        });
-      }, 2000);
+      navigate("/loading", {
+        state: {
+          username,
+          amount,
+          currency,
+        },
+      });
     }
   };
 
