@@ -21,7 +21,7 @@ const LoadingPage = () => {
     <>
       <Navbar />
       <div className="flex items-center justify-center h-screen bg-white">
-        <OrbitProgress color="#002C8A" size="large" text="" textColor="" />
+        <OrbitProgress color="#002C8A" size="small" text="" textColor="" />
       </div>
       <Footer />
     </>
