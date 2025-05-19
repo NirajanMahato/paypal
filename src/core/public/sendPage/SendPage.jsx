@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { FaSearch, FaStore, FaUser } from "react-icons/fa";
+import { FaSearch, FaStore } from "react-icons/fa";
+import { GoGift } from "react-icons/go";
+import { PiUsersThree } from "react-icons/pi";
+import { TfiSplitV } from "react-icons/tfi";
 import { useNavigate } from "react-router-dom";
 import { dummyUsers } from "../../../dummydata/user";
 import Navbar from "../components/Navbar";
@@ -118,6 +121,39 @@ export default function SendPage() {
           >
             Next
           </button>
+
+          {/* Show All Contacts */}
+          <p className="text-[#0070E0] font-medium mt-6 text-md underline cursor-pointer">
+            Show all contacts
+          </p>
+
+          {/* More Options */}
+          <div className="mt-10">
+            <h2 className="text-2xl font-bold mb-4">More options</h2>
+            <div className="space-y-6">
+              {/* Pool money */}
+              <div className="flex items-center space-x-4 hover:cursor-pointer">
+                <PiUsersThree className="text-3xl text-[#001435]" />
+                <p className="text-lg font-medium text-[#001435]">Pool money</p>
+              </div>
+
+              {/* Split a bill */}
+              <div className="flex items-center space-x-4 hover:cursor-pointer">
+                <TfiSplitV className="text-3xl text-[#001435]" />
+                <p className="text-lg font-medium text-[#001435]">
+                  Split a bill
+                </p>
+              </div>
+
+              {/* Gift card */}
+              <div className="flex items-center space-x-4 hover:cursor-pointer">
+                <GoGift className="text-3xl text-[#001435]" />
+                <p className="text-lg font-medium text-[#001435]">
+                  Send a digital gift card
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
