@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaSpinner, FaStore } from "react-icons/fa";
+import { FaSpinner, FaUser } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { dummyUsers } from "../../../dummydata/user";
 import Footer from "../components/Footer";
@@ -14,7 +14,7 @@ export default function MakePaymentPage() {
 
   const user = dummyUsers.find((u) => u.username === username) || {
     name: "Unknown",
-    avatar: "/Logo/default-avatar.png",
+    avatar: null,
   };
 
   const [amount, setAmount] = useState("");
@@ -64,12 +64,13 @@ export default function MakePaymentPage() {
                 />
               ) : (
                 <div className="w-16 h-16 rounded-full bg-[#2663e6] flex items-center justify-center text-white">
-                  <FaStore className="text-xl" />
+                  <FaUser className="text-2xl" />{" "}
+                  {/* <-- Here is the Person Icon */}
                 </div>
               )}
               <div>
                 <p className="font-bold text-2xl">{user.name}</p>
-                <p className="">@{username}</p>
+                <p>@{username}</p>
               </div>
             </div>
 
